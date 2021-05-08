@@ -1,0 +1,133 @@
+body {
+  background-image: linear-gradient(to right, #c2e59c, #64b3f4);
+  display: flex;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+}
+.date {
+  display: flex;
+  justify-content: center;
+}
+.select {
+  display: inline;
+  margin-left: 40px;
+}
+
+li {
+  list-style-type: none;
+  max-width: 300px;
+  font-family: "Poppins", sans-serif;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+@media (max-width: 400px) {
+  li {
+    max-width: 220px;
+  }
+}
+.todo {
+  background-color: white;
+  position: relative;
+  min-width: fit-content;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.completed {
+  text-decoration: line-through;
+  opacity: 50%;
+}
+.complete-btn {
+  position: absolute;
+  right: 10%;
+  padding-top: 3px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.trash-btn {
+  position: absolute;
+  right: 0;
+  padding-top: 3px;
+  padding-right: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#input {
+  font-size: 20px;
+  padding: 5px 3px 2px 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#sumbit {
+  border: 0;
+  padding: 0;
+  width: 0;
+  font-size: 25px;
+  height: 0;
+}
+
+.add_btn {
+  padding-left: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.add_btn:hover {
+  transform: scale(1.2);
+}
+
+.complete-btn:hover {
+  transform: scale(1.25);
+}
+
+.trash-btn:hover {
+  transform: scale(1.25);
+}
+
+/* custom select css*/
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: black 1px solid;
+  border-radius: 5px;
+  background-image: none;
+}
+
+/* Custom Select */
+.filter-todo {
+  padding: 0.4rem;
+}
+.select {
+  position: relative;
+  overflow: hidden;
+}
+select {
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  width: 10rem;
+}
+/* Arrow */
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0%;
+  right: 0;
+  padding: 0.3rem;
+  cursor: pointer;
+  pointer-events: none;
+}
+/* Transition */
+/*
+.select:hover::after {
+  transform: scale(1.5);
+}
+*/
