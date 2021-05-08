@@ -21,6 +21,7 @@ To run this project run following commands
 
  . client Folder
 npm i node (to get node modules)
+npm i axios
 
 . server Folder
 npm i express mongoose nodemon concurrently
