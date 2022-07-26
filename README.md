@@ -6,7 +6,6 @@
 
 
 
-
 # Following dependencies are used in this project
 1) Node 
 2) Express
