@@ -9,12 +9,12 @@ name: CxFlow
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ master ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ "main" ]
+    branches: [ master ]
   schedule:
-    - cron: '27 3 * * 6'
+    - cron: '39 15 * * 1'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel - this job is specifically configured to use the Checkmarx CxFlow Action
 permissions:
@@ -34,21 +34,27 @@ jobs:
     # Steps require - checkout code, run CxFlow Action, Upload SARIF report (optional)
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     # Runs the Checkmarx Scan leveraging the latest version of CxFlow - REFER to Action README for list of inputs
     - name: Checkmarx CxFlow Action
-      uses: checkmarx-ts/checkmarx-cxflow-github-action@49d8269b14ca87910ba003d47a31fa0c7a11f2fe
+      uses: checkmarx-ts/checkmarx-cxflow-github-action@9975af7d6b957abec9ee9646effa3fb3b82c5314
       with:
-        project: ${{ secrets.CHECKMARX_PROJECT }}
+        project: ${{ github.repository }}-PR
         team: ${{ secrets.CHECKMARX_TEAMS }}
         checkmarx_url: ${{ secrets.CHECKMARX_URL }}
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
-        scanners: sast
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --cx-flow.filter-severity --cx-flow.filter-category --checkmarx.disable-clubbing=true --repo-url=${{ github.event.repository.url }}
+        scanners: sast,sca
+        sca_api_url: ${{ secrets.SCA_API_URL }}
+        sca_app_url: ${{ secrets.SCA_APP_URL }}
+        sca_access_control_url: ${{ secrets.SCA_ACCESS_CONTROL_URL }}
+        sca_tenant: ${{  secrets.SCA_TENANT }}
+        sca_username: ${{ secrets.SCA_USERNAME }}
+        sca_password: ${{ secrets.SCA_PASSWORD }}
+        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --repo=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --cx-flow.filterSeverity --cx-flow.filterCategory
     # Upload the Report for CodeQL/Security Alerts
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: cx.sarif
+    #- name: Upload SARIF file
+      #uses: github/codeql-action/upload-sarif@v2
+      #with:
+        #sarif_file: cx.sarif
