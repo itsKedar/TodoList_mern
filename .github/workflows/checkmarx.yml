@@ -46,7 +46,7 @@ jobs:
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
         scanners: sast
-        break_build: true
+        #break_build: true
         sca_api_url: ${{ secrets.SCA_API_URL }}
         sca_app_url: ${{ secrets.SCA_APP_URL }}
         sca_access_control_url: ${{ secrets.SCA_ACCESS_CONTROL_URL }}
