@@ -46,8 +46,9 @@ jobs:
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
-        scanners: sast
+        scanners: sca
         #break_build: true
+        bug_tracker: Sarif
         sca_api_url: ${{ secrets.SCA_API_URL }}
         sca_app_url: ${{ secrets.SCA_APP_URL }}
         sca_access_control_url: ${{ secrets.SCA_ACCESS_CONTROL_URL }}
@@ -56,7 +57,7 @@ jobs:
         sca_password: ${{ secrets.SCA_PASSWORD }}
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --repo=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --github.block-merge=true --github.error-merge=true --cx-flow.filterSeverity --cx-flow.filterCategory
     # Upload the Report for CodeQL/Security Alerts
-    #- name: Upload SARIF file
-      #uses: github/codeql-action/upload-sarif@v2
-      #with:
-        #sarif_file: cx.sarif
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: cx.sarif
