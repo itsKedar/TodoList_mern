@@ -57,7 +57,7 @@ jobs:
         sca_password: ${{ secrets.SCA_PASSWORD }}
         jira_url : https://kedarbhujade.atlassian.net
         jira_username : kedar.bhujade6@gmail.com
-        jira_token : ATATT3xFfGF0TwWNDfMrVA4UtxAReq2h1MwY95Uw26S4ntqtNTBQGL8E4en1E5e-xnEhTNrILJ8MDrm-XTCtsgU-yPPuP5i6fOUZ6afhv7VeDC-WyC1B0SJxO2xrfdeizhSuPWIhfB5naHgSq9PYTVpyKenSPmdew6t8LQBU_THdquqwq-iGxik=38CB19B1
+        jira_token : ${{ secrets.JIRA_TOKEN }}
         jira_project : APPSEC
         jira_issue_type : Bug
         jira_open_transition : 'In Progress'
