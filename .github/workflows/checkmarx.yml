@@ -55,8 +55,8 @@ jobs:
         sca_tenant: ${{  secrets.SCA_TENANT }}
         sca_username: ${{ secrets.SCA_USERNAME }}
         sca_password: ${{ secrets.SCA_PASSWORD }}
-        jira_url : https://kedarbhujade.atlassian.net
-        jira_username : kedar.bhujade6@gmail.com
+        jira_url : 'https://kedarbhujade.atlassian.net'
+        jira_username : 'kedar.bhujade6@gmail.com'
         jira_token : ${{ secrets.JIRA_TOKEN }}
         jira_project : APPSEC
         jira_issue_type : Bug
@@ -66,7 +66,7 @@ jobs:
         jira_closed_status : 'Done'
         params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --jira.fields[0].type=static --jira.fields[0].jira-field-name="Epic Link"  --jira.fields[0].jira-default-value=APPSEC-2371 --logging.level.com.checkmarx.*=DEBUG --cx-flow.filterSeverity --cx-flow.filterCategory
     # Upload the Report for CodeQL/Security Alerts
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v2
-      with:
-        sarif_file: cx.sarif
+    #- name: Upload SARIF file
+      #uses: github/codeql-action/upload-sarif@v2
+      #with:
+        #sarif_file: cx.sarif
