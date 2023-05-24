@@ -57,14 +57,14 @@ jobs:
         sca_password: ${{ secrets.SCA_PASSWORD }}
         jira_url : 'https://kedarbhujade.atlassian.net'
         jira_username : 'kedar.bhujade6@gmail.com'
-        #jira_token : 'ATATT3xFfGF0TwWNDfMrVA4UtxAReq2h1MwY95Uw26S4ntqtNTBQGL8E4en1E5e-xnEhTNrILJ8MDrm-XTCtsgU-yPPuP5i6fOUZ6afhv7VeDC-WyC1B0SJxO2xrfdeizhSuPWIhfB5naHgSq9PYTVpyKenSPmdew6t8LQBU_THdquqwq-iGxik=38CB19B1'
+        jira_token : ${{ secrets.JIRA_TOKEN }}
         jira_project : 'APPSEC'
         jira_issue_type : 'Bug'
         jira_open_transition : 'In Progress'
         jira_close_transition : 'Done'
         jira_open_status : 'Selected for Development,In Progress'
         jira_closed_status : 'Done'
-        params: --jira.token='ATATT3xFfGF0TwWNDfMrVA4UtxAReq2h1MwY95Uw26S4ntqtNTBQGL8E4en1E5e-xnEhTNrILJ8MDrm-XTCtsgU-yPPuP5i6fOUZ6afhv7VeDC-WyC1B0SJxO2xrfdeizhSuPWIhfB5naHgSq9PYTVpyKenSPmdew6t8LQBU_THdquqwq-iGxik=38CB19B1' --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --jira.fields[0].type=static --jira.fields[0].jira-field-name="Epic Link"  --jira.fields[0].jira-default-value=APPSEC-2371 --logging.level.com.checkmarx.*=DEBUG --cx-flow.filterSeverity --cx-flow.filterCategory
+        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.*=DEBUG --cx-flow.filterSeverity --cx-flow.filterCategory
     # Upload the Report for CodeQL/Security Alerts
     #- name: Upload SARIF file
       #uses: github/codeql-action/upload-sarif@v2
