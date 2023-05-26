@@ -64,7 +64,7 @@ jobs:
         jira_close_transition : 'Done'
         jira_open_status : 'Selected for Development,In Progress'
         jira_closed_status : 'Done'
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.*=DEBUG --jira.fields[0].type=static --jira.fields[0].jira-field-name=Epic%20Link --jira.fields[0].jira-field-type=text --jira.fields[0].jira-default-value=APPSEC-2371 --cx-flow.filterSeverity --cx-flow.filterCategory
+        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.*=DEBUG --jira.fields[0].type=static --jira.fields[0].jira-field-name='Epic\u0020Link' --jira.fields[0].jira-field-type=text --jira.fields[0].jira-default-value=APPSEC-2371 --cx-flow.filterSeverity --cx-flow.filterCategory
     # Upload the Report for CodeQL/Security Alerts
     #- name: Upload SARIF file
       #uses: github/codeql-action/upload-sarif@v2
