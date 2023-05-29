@@ -40,7 +40,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       env:
         JIRA_FIELDS_JIRA_FIELD_NAME : "Epic Link"
-      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.7
+      uses: satyamchaurasiapersistent/checkmarx-cxflow-github-action@v7.42
       with:
         project: ${{ github.repository }}-PR
         team: ${{ secrets.CHECKMARX_TEAMS }}
@@ -66,7 +66,7 @@ jobs:
         jira_close_transition : 'Done'
         jira_open_status : 'Selected for Development,In Progress'
         jira_closed_status : 'Done'
-        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.*=DEBUG --jira.fields[0].type=static --jira.fields[0].jira-field-type=text --jira.fields[0].jira-field-name="${{ env.JIRA_FIELDS_JIRA_FIELD_NAME }}" --jira.fields[0].jira-default-value=APPSEC-2371 --cx-flow.filterSeverity --cx-flow.filterCategory
+        params: --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.*=DEBUG  --cx-flow.filterSeverity --cx-flow.filterCategory
     # Upload the Report for CodeQL/Security Alerts
     #- name: Upload SARIF file
       #uses: github/codeql-action/upload-sarif@v2
