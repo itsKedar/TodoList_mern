@@ -40,7 +40,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       env:
         JIRA_FIELDS_JIRA_FIELD_NAME : "Epic Link"
-      uses: satyamchaurasiapersistent/checkmarx-cxflow-github-action@v7.43
+      uses: itsKedar/checkmarx-cxflow-github-action@v1.1.0
       with:
         project: ${{ github.repository }}-PR
         team: ${{ secrets.CHECKMARX_TEAMS }}
