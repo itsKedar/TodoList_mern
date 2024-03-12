@@ -41,6 +41,7 @@ jobs:
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.9
       env:
         SCA_SCARESOLVERADDPARAMETERS_0_CUSTOM-PARAMETER : "--gradle-parameters=-Paws.codeartifact.username=${{ github.repository_owner }} -Paws.codeartifact.token=${{ github.repository_owner }}"
+        SCA_SCARESOLVERADDPARAMETERS_1_LOG-LEVEL : Debug
         JIRA_FIELDS_0_JIRA_DEFAULT_VALUE : APPSEC-2371
         JIRA_FIELDS_0_JIRA_FIELD_NAME : "Epic Link"
         JIRA_FIELDS_0_JIRA_FIELD_TYPE : text
@@ -70,7 +71,7 @@ jobs:
         jira_close_transition : 'Done'
         jira_open_status : 'Selected for Development,In Progress'
         jira_closed_status : 'Done'
-        params: '--namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.*=DEBUG --cx-flow.filterSeverity --cx-flow.filterCategory'
+        params: '--sca.enable-sca-resolver=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.*=DEBUG --cx-flow.filterSeverity --cx-flow.filterCategory'
     # Upload the Report for CodeQL/Security Alerts
     #- name: Upload SARIF file
       #uses: github/codeql-action/upload-sarif@v2
