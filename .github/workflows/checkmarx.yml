@@ -55,7 +55,7 @@ jobs:
         checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
         scanners: sca
         break_build: true
-        bug_tracker: WAIT
+        bug_tracker: JIRA
         sca_api_url: ${{ secrets.SCA_API_URL }}
         sca_app_url: ${{ secrets.SCA_APP_URL }}
         sca_access_control_url: ${{ secrets.SCA_ACCESS_CONTROL_URL }}
