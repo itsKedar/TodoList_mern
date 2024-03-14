@@ -30,7 +30,7 @@ jobs:
     - name: Checkmarx CxFlow Action
       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.9
       env:
-        SCA_SCARESOLVERADDPARAMETERS_CUSTOM-PARAMETER : "--gradle-parameters=-Paws.codeartifact.username=${{ github.repository_owner }} -Paws.codeartifact.token=${{ github.repository_owner }}"
+        SCA_SCARESOLVERADDPARAMETERS_CUSTOM-PARAMETER : '--gradle-parameters=-Paws.codeartifact.username=${{ github.repository_owner }} -Paws.codeartifact.token=${{ github.repository_owner }}'
         SCA_SCARESOLVERADDPARAMETERS_LOG-LEVEL : Debug
         JIRA_FIELDS_0_JIRA_DEFAULT_VALUE : APPSEC-2371
         JIRA_FIELDS_0_JIRA_FIELD_NAME : "Epic Link"
