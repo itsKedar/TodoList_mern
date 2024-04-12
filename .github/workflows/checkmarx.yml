@@ -44,7 +44,7 @@ jobs:
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
         scanners: sast
-        extra_certificates: ${{ secrets.CERT }}
+        extra_certificates: checkmarx.crt
         break_build: true
         bug_tracker: WAIT
         sca_api_url: ${{ secrets.SCA_API_URL }}
