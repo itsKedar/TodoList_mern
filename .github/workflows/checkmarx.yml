@@ -43,9 +43,9 @@ jobs:
         checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
         checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
         checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
-        scanners: sca
+        scanners: sast
         break_build: true
-        bug_tracker: JIRA
+        bug_tracker: WAIT
         sca_api_url: ${{ secrets.SCA_API_URL }}
         sca_app_url: ${{ secrets.SCA_APP_URL }}
         sca_access_control_url: ${{ secrets.SCA_ACCESS_CONTROL_URL }}
@@ -61,4 +61,4 @@ jobs:
         jira_close_transition : 'Done'
         jira_open_status : 'Selected for Development,In Progress'
         jira_closed_status : 'Done'
-        params: '--sca.enable-sca-resolver=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.*=DEBUG --cx-flow.filterSeverity --cx-flow.filterCategory'
+        params: '--github --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.*=DEBUG --cx-flow.filterSeverity --cx-flow.filterCategory'
